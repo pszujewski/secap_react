@@ -22,3 +22,6 @@ export const renderForTest = (Component, defaultProps) => propsOverride => {
 
   return render(<Component {...props} />);
 };
+
+// Identifies a right click
+export const rightClick = { button: 2 };

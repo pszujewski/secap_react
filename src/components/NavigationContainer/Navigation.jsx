@@ -18,8 +18,9 @@ export default class Navigation extends React.Component {
   };
 
   getNavAnchor(key, label) {
+    const tId = `${key}-anchor`;
     return (
-      <Menu.Item key={key} onClick={this.updateKey(key)}>
+      <Menu.Item data-testid={tId} key={key} onClick={this.updateKey(key)}>
         {label}
       </Menu.Item>
     );
