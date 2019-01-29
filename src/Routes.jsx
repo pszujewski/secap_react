@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import BuildQueryScene from "./scenes/BuildQueryScene";
-import CustomQueryScene from "./scenes/CustomQueryScene";
-import EBNFOverviewScene from "./scenes/EBNFOverviewScene";
+import CustomQueryScene from "./CustomQueryScene";
+import EBNFOverviewScene from "./EBNFOverviewScene";
 
 export default class Routes extends Component {
   static propTypes = {
@@ -13,8 +12,6 @@ export default class Routes extends Component {
   // Produces the scene or service desired based on the given key
   renderSceneByNavKey = activeNavKey => {
     switch (activeNavKey) {
-      case "build":
-        return <BuildQueryScene />;
       case "ebnf":
         return <EBNFOverviewScene />;
       case "custom":

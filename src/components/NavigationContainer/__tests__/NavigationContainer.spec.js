@@ -17,7 +17,7 @@ describe("<NavigationContainer />", () => {
 
   it("Should accept click events to update the activeNavKey", () => {
     const { getByTestId, getByText } = setup();
-    const didFire = fireEvent.click(getByTestId("build-anchor"), rightClick);
+    const didFire = fireEvent.click(getByTestId("ebnf-anchor"), rightClick);
     expect(getByText("custom")).toBeInTheDocument();
     expect(didFire).toBe(true);
   });

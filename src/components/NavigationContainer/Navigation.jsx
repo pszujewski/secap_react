@@ -38,7 +38,6 @@ export default class Navigation extends React.Component {
             selectedKeys={[key]}
             style={{ lineHeight: "64px" }}>
             {this.getNavAnchor("custom", "Custom query")}
-            {this.getNavAnchor("build", "Build a query")}
             {this.getNavAnchor("ebnf", "Review the EBNF")}
           </Menu>
         </Header>
@@ -54,7 +53,7 @@ export default class Navigation extends React.Component {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Software development capstone by Peter Szujewski - thanks Ant Design
+          Software development capstone by Peter Szujewski
         </Footer>
       </Layout>
     );

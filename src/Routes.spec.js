@@ -9,11 +9,6 @@ describe("<Routes />", () => {
     expect(getByTestId("custom-query-scene")).toBeInTheDocument();
   });
 
-  it("renders BuildQueryScene if the activeKey is 'build'", () => {
-    const { getByTestId } = setup({ activeNavKey: "build" });
-    expect(getByTestId("build-query-scene")).toBeInTheDocument();
-  });
-
   it("render EBNFOverviewScene if the activeKey is 'ebnf'", () => {
     const { getByTestId } = setup({ activeNavKey: "ebnf" });
     expect(getByTestId("ebnf-scene")).toBeInTheDocument();

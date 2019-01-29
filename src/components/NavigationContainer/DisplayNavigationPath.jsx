@@ -10,8 +10,6 @@ export default class Navigation extends React.Component {
   getCurrentLocationByKey() {
     const { activeNavKey } = this.props;
     switch (activeNavKey) {
-      case "build":
-        return "Build";
       case "ebnf":
         return "EBNF";
       case "custom":
