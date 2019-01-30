@@ -1,15 +1,15 @@
 import React from "react";
 import { renderForTest, rightClick } from "../../../setupTestComponent";
-import NavigationContainer from "../index";
+import AppContainer from "../index";
 import { fireEvent } from "react-testing-library";
 
 const render = state => {
   return <div>{state.activeNavKey}</div>;
 };
 
-const setup = renderForTest(NavigationContainer, { render });
+const setup = renderForTest(AppContainer, { render });
 
-describe("<NavigationContainer />", () => {
+describe("<AppContainer />", () => {
   it("Should render 'custom' by default and onMount", () => {
     const { getByText } = setup();
     expect(getByText("custom")).toBeInTheDocument();

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Navigation from "./Navigation";
 
-export default class NavigationContainer extends React.Component {
+export default class AppContainer extends React.Component {
   static propTypes = {
     render: PropTypes.func, // render props pattern
   };

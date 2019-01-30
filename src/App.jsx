@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavigationContainer from "./components/NavigationContainer";
+import AppContainer from "./components/AppContainer";
 import Routes from "./Routes";
 
 export default class App extends Component {
@@ -10,6 +10,6 @@ export default class App extends Component {
   };
 
   render() {
-    return <NavigationContainer render={this.getAppBody} />;
+    return <AppContainer render={this.getAppBody} />;
   }
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Layout, Menu } from "antd";
+import SceneWrapper from "./SceneWrapper";
 import AppLogo from "./AppLogo";
-import DisplayNavigationPath from "./DisplayNavigationPath";
 
-const { Header, Content, Footer } = Layout;
+const { Header } = Layout;
 
 export default class Navigation extends React.Component {
   static propTypes = {
@@ -41,20 +41,7 @@ export default class Navigation extends React.Component {
             {this.getNavAnchor("ebnf", "Review the EBNF")}
           </Menu>
         </Header>
-        <Content style={{ padding: "0 50px", marginTop: 64 }}>
-          <DisplayNavigationPath activeNavKey={key} />
-          <div
-            style={{
-              background: "#fff",
-              padding: 24,
-              minHeight: 920,
-            }}>
-            {this.props.children}
-          </div>
-        </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Software development capstone by Peter Szujewski
-        </Footer>
+        <SceneWrapper>{this.props.children}</SceneWrapper>
       </Layout>
     );
   }
