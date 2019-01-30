@@ -1,7 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { Form, Icon, Input, Button } from "antd";
+import { queryRequest } from "../../data/actions";
 
-export default class InputQueryForm extends React.Component {
+export class InputQueryForm extends React.Component {
+  static propTypes = {
+    sendQuery: PropTypes.func,
+  };
+
   state = {
     inputValue: "",
   };
@@ -13,7 +20,7 @@ export default class InputQueryForm extends React.Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log(this.state);
+    this.props.sendQuery(this.state.inputValue.trim());
   };
 
   render() {
@@ -32,3 +39,12 @@ export default class InputQueryForm extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  sendQuery: query => dispatch(queryRequest(query)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(InputQueryForm);

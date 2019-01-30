@@ -1,15 +1,22 @@
-import { takeEvery } from "redux-saga/effects";
-
-// Worker
-function* queryWorker() {
-  console.log("hello worker");
-}
-
-// Watcher
-function* querySaga() {
-  yield takeEvery("HELLO_ACTION", queryWorker);
-}
+import { takeEvery, call, put } from "redux-saga/effects";
+import * as types from "./types";
+import { querySuccess, queryError } from "./actions";
+import * as Api from "../Api";
 
 // watcher saga -> watches for actions -> passes to worker saga
 
-export default querySaga;
+// Worker
+function* queryWorker(action) {
+  try {
+    const body = action.payload;
+    const queryResults = yield call(Api.post, "/query", body);
+    yield put(querySuccess(queryResults));
+  } catch (error) {
+    yield put(queryError(error));
+  }
+}
+
+// Watcher
+export default function* querySaga() {
+  yield takeEvery(types.QUERY_REQUEST, queryWorker);
+}

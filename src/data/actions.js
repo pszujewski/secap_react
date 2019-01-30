@@ -1,7 +1,8 @@
 import * as types from "./types";
 
-export const queryRequest = () => ({
+export const queryRequest = query => ({
   type: types.QUERY_REQUEST,
+  payload: query,
 });
 
 export const querySuccess = queryResults => ({
