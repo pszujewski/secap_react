@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Layout } from "antd";
+
+import AppLogo from "./AppLogo";
 import Navigation from "./Navigation";
+import SceneWrapper from "./SceneWrapper";
 
 export default class AppContainer extends React.Component {
   static propTypes = {
@@ -19,11 +23,16 @@ export default class AppContainer extends React.Component {
   };
 
   render() {
-    const { activeNavKey } = this.state;
+    const { activeNavKey: key } = this.state;
     return (
-      <Navigation activeNavKey={activeNavKey} updateNavKey={this.updateNavKey}>
-        {this.props.render(this.state)}
-      </Navigation>
+      <Layout>
+        <Navigation activeNavKey={key} updateNavKey={this.updateNavKey}>
+          <AppLogo />
+        </Navigation>
+        <SceneWrapper activeNavKey={key}>
+          {this.props.render(this.state)}
+        </SceneWrapper>
+      </Layout>
     );
   }
 }
