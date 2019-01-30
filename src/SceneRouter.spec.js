@@ -1,9 +1,9 @@
-import Routes from "./Routes";
+import SceneRouter from "./SceneRouter";
 import { renderForTest } from "./setupTestComponent";
 
-const setup = renderForTest(Routes, { activeNavKey: "custom" });
+const setup = renderForTest(SceneRouter, { activeNavKey: "custom" });
 
-describe("<Routes />", () => {
+describe("<SceneRouter />", () => {
   it("renders CustomQueryScene if the activeKey is 'custom'", () => {
     const { getByTestId } = setup();
     expect(getByTestId("custom-query-scene")).toBeInTheDocument();

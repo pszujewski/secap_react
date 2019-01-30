@@ -7,6 +7,7 @@ const { Content, Footer } = Layout;
 
 export default class SceneWrapper extends React.Component {
   static propTypes = {
+    activeNavKey: PropTypes.string,
     children: PropTypes.element,
   };
 

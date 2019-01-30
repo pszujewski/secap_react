@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import CustomQueryScene from "./CustomQueryScene";
 import EBNFOverviewScene from "./EBNFOverviewScene";
 
-export default class Routes extends Component {
+export default class SceneRouter extends Component {
   static propTypes = {
     activeNavKey: PropTypes.string,
   };
@@ -21,10 +21,6 @@ export default class Routes extends Component {
   };
 
   render() {
-    return (
-      <div className="Routes">
-        {this.renderSceneByNavKey(this.props.activeNavKey)}
-      </div>
-    );
+    return this.renderSceneByNavKey(this.props.activeNavKey);
   }
 }

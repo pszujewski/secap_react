@@ -41,7 +41,7 @@ export default class Navigation extends React.Component {
             {this.getNavAnchor("ebnf", "Review the EBNF")}
           </Menu>
         </Header>
-        <SceneWrapper>{this.props.children}</SceneWrapper>
+        <SceneWrapper activeNavKey={key}>{this.props.children}</SceneWrapper>
       </Layout>
     );
   }
