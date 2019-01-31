@@ -1,7 +1,7 @@
 import { takeEvery, call, put } from "redux-saga/effects";
 import * as types from "./types";
 import { querySuccess, queryError } from "./actions";
-import * as Api from "../Api";
+import * as Api from "../../Api";
 
 // watcher saga -> watches for actions -> passes to worker saga
 

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import query from "./data/reducer";
+import query from "./CustomQueryScene/data/reducer";
 
 export default combineReducers({
   query,
