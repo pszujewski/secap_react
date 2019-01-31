@@ -1,28 +1,32 @@
+/**
+ * Given the key name on a record, retrieves the appropriate Column Title
+ */
+
 export default class ColumnTitle {
   constructor(recordKey) {
     this.key = recordKey;
+    this.keysToColumnTitles = this._getRecordKeysToColumnTitles();
   }
 
   getTitle() {
-    const keysToTitles = this.getRecordKeysToColumnTitles();
-    for (let k in keysToTitles) {
-      if (this.isMatch(k)) {
-        return keysToTitles[k];
+    for (let k in this.keysToColumnTitles) {
+      if (this._isMatch(k)) {
+        return this.keysToColumnTitles[k];
       }
     }
   }
 
-  isMatch(recordKey) {
+  _isMatch(recordKey) {
     return this.key.indexOf(recordKey) > -1;
   }
 
-  getRecordKeysToColumnTitles() {
-    const courses = this.coursesRecordKeysToColumnTitle();
-    const rooms = this.roomsRecordKeysToColumnTitle();
+  _getRecordKeysToColumnTitles() {
+    const courses = this._coursesRecordKeysToColumnTitle();
+    const rooms = this._roomsRecordKeysToColumnTitle();
     return { ...courses, ...rooms };
   }
 
-  coursesRecordKeysToColumnTitle() {
+  _coursesRecordKeysToColumnTitle() {
     return {
       uuid: "UUID",
       avg: "Average",
@@ -37,7 +41,7 @@ export default class ColumnTitle {
     };
   }
 
-  roomsRecordKeysToColumnTitle() {
+  _roomsRecordKeysToColumnTitle() {
     return {
       lat: "Latitude",
       lon: "Longitude",
