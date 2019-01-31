@@ -21,7 +21,7 @@ export default class SceneWrapper extends React.Component {
             style={{
               background: "#fff",
               padding: 24,
-              minHeight: 920,
+              minHeight: 720,
             }}>
             {this.props.children}
           </div>

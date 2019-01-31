@@ -33,7 +33,9 @@ export default class QueryResultsTable extends React.Component {
   render() {
     const columns = this.getTableColumnsConfig();
     return (
-      <Table columns={columns} dataSource={this.getRecordsWithUniqueKeys()} />
+      <div style={{ paddingTop: "2rem" }}>
+        <Table columns={columns} dataSource={this.getRecordsWithUniqueKeys()} />
+      </div>
     );
   }
 }

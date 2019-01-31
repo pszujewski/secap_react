@@ -31,7 +31,6 @@ export const renderForTest = (Component, defaultProps) => propsOverride => {
 };
 
 /**
- *
  * @param {Jsx} UI // the component to render
  * @param {Object} redux // contains reducer and initialState fields
  * @param {Object} defaultProps // props for UI component if needed
@@ -50,10 +49,14 @@ export const renderWithRedux = (UI, redux, defaultProps) => propsOverride => {
   };
 };
 
-export const renderWithReduxDefault = (UI, defaultProps) => propsOverride => {
+/**
+ * @param {Jsx} UI // the component to render
+ * @param {Object} defaultProps // props for UI component if needed
+ */
+export const renderWithReduxStore = (UI, defaultProps) => propsOverride => {
   const reduxDefault = {
     reducer: rootReducer,
-    initialState: rootReducer({}, { type: "INIT" }),
+    initialState: rootReducer({}, { type: "INIT_REDUX" }),
   };
   return renderWithRedux(UI, reduxDefault, defaultProps)(propsOverride);
 };

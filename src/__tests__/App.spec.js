@@ -1,7 +1,7 @@
 import App from "../App";
-import { renderWithReduxDefault } from "../setupTestComponent";
+import { renderWithReduxStore } from "../setupTestComponent";
 
-const setup = renderWithReduxDefault(App);
+const setup = renderWithReduxStore(App);
 
 describe("<App />", () => {
   it("renders without crashing", () => {
