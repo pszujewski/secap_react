@@ -1,7 +1,7 @@
-import SceneRouter from "./SceneRouter";
-import { renderForTest } from "./setupTestComponent";
+import SceneRouter from "../SceneRouter";
+import { renderWithReduxDefault } from "../setupTestComponent";
 
-const setup = renderForTest(SceneRouter, { activeNavKey: "custom" });
+const setup = renderWithReduxDefault(SceneRouter, { activeNavKey: "custom" });
 
 describe("<SceneRouter />", () => {
   it("renders CustomQueryScene if the activeKey is 'custom'", () => {

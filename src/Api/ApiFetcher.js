@@ -1,6 +1,5 @@
 export default class ApiFetcher {
-  // Public methods
-
+  // Public method
   call(endpoint, method, body) {
     const url = this._getRequestUrl(endpoint);
     const options = this._getFetchOptions(method, body);

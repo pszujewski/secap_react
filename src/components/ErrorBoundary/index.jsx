@@ -2,24 +2,36 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default class ErrorBoundary extends React.Component {
-  static propTypes = { children: PropTypes.element };
+  static propTypes = {
+    children: PropTypes.element.isRequired,
+    FallbackComponent: PropTypes.element, // not required
+  };
 
   state = { hasError: false };
 
-  static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+  // Update state so the next render will show the fallback UI.
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
+  // You can also log the error to an error reporting service
   componentDidCatch(error, info) {
-    // You can also log the error to an error reporting service
     console.error(error, info);
   }
 
+  defaultFallback() {
+    return (
+      <div style={{ paddingTop: "3rem" }}>
+        <h1>Something went wrong.</h1>
+      </div>
+    );
+  }
+
   render() {
+    const { FallbackComponent: Fallback } = this.props;
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+      // Render any custom fallback UI
+      return Fallback ? <Fallback /> : this.defaultFallback();
     }
 
     return this.props.children;

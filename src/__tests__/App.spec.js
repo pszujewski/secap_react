@@ -1,7 +1,7 @@
-import App from "./App";
-import { renderForTest } from "./setupTestComponent";
+import App from "../App";
+import { renderWithReduxDefault } from "../setupTestComponent";
 
-const setup = renderForTest(App);
+const setup = renderWithReduxDefault(App);
 
 describe("<App />", () => {
   it("renders without crashing", () => {

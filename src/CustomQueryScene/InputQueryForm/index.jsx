@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Form, Icon, Input, Button } from "antd";
-import { queryRequest } from "../../data/actions";
+import { queryRequest } from "../data/actions";
 
 export class InputQueryForm extends React.Component {
   static propTypes = {
