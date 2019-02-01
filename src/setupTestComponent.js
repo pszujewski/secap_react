@@ -20,8 +20,7 @@ const getProps = (defaultProps, propsOverride) => {
  * @param {Object} defaultProps
  * Produces setup function for unit tests of components; passes
  * component through rtl render()
- * Renders the given component with given defaultProps unless a propsOverride
- * is given
+ * Renders the given component with given defaultProps unless given propsOverride
  */
 export const renderForTest = (Component, defaultProps) => propsOverride => {
   if (!defaultProps) {
@@ -35,7 +34,7 @@ export const renderForTest = (Component, defaultProps) => propsOverride => {
  * @param {Object} redux // contains reducer and initialState fields
  * @param {Object} defaultProps // props for UI component if needed
  */
-export const renderWithRedux = (UI, redux, defaultProps) => propsOverride => {
+const renderWithRedux = (UI, redux, defaultProps) => propsOverride => {
   const { reducer, initialState } = redux;
 
   const store = createStore(reducer, initialState);
@@ -51,14 +50,21 @@ export const renderWithRedux = (UI, redux, defaultProps) => propsOverride => {
 
 /**
  * @param {Jsx} UI // the component to render
+ * @param {Object} action // action object for setting up the state of the redux store
  * @param {Object} defaultProps // props for UI component if needed
+ * @returns {Function}
+ * The second function returns an object containing all the query and helper methods
+ * of the react-testing-library. The component is rendered in the test document.
  */
-export const renderWithReduxStore = (UI, defaultProps) => propsOverride => {
-  const reduxDefault = {
+export const renderWithReduxStore = (UI, action, defaultProps) => override => {
+  const initAction = action ? action : { type: "INIT_REDUX" };
+
+  const reduxRoot = {
     reducer: rootReducer,
-    initialState: rootReducer({}, { type: "INIT_REDUX" }),
+    initialState: rootReducer({}, initAction),
   };
-  return renderWithRedux(UI, reduxDefault, defaultProps)(propsOverride);
+
+  return renderWithRedux(UI, reduxRoot, defaultProps)(override);
 };
 
 // Identifies a right click
