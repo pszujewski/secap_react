@@ -24,7 +24,7 @@ export default class Prompt extends React.Component {
     const { header, body, children } = this.props;
     return (
       <div className="Prompt" style={this.getStyle()}>
-        <h5>{header}</h5>
+        <h2>{header}</h2>
         <p>{body}</p>
         {children}
       </div>

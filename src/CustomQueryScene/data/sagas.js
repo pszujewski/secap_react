@@ -6,7 +6,7 @@ import * as Api from "../../Api";
 // watcher saga -> watches for actions -> passes to worker saga
 
 // Worker
-function* queryWorker(action) {
+export function* queryWorker(action) {
   try {
     const body = action.payload;
     const queryResults = yield call(Api.post, "/query", body);
