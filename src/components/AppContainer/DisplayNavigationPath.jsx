@@ -12,6 +12,8 @@ export default class Navigation extends React.Component {
     switch (activeNavKey) {
       case "ebnf":
         return "EBNF";
+      case "datasets":
+        return "List Datasets";
       case "custom":
       default:
         return "Custom";

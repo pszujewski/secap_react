@@ -17,7 +17,7 @@ export default class AppContainer extends React.Component {
 
   // String -> setState
   // Produces new state of the navigation given the nextKey that
-  // should be active; next key is one of "custom", "build" or "ebnf"
+  // should be active; next key is one of "custom", "datasets" or "ebnf"
   updateNavKey = nextKey => {
     this.setState({ activeNavKey: nextKey });
   };

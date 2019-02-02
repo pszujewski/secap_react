@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CustomQueryScene from "./CustomQueryScene";
 import EBNFOverviewScene from "./EBNFOverviewScene";
+import ListDatasetsScene from "./ListDatasetsScene";
 
 export default class SceneRouter extends Component {
   static propTypes = {
@@ -14,6 +15,8 @@ export default class SceneRouter extends Component {
     switch (activeNavKey) {
       case "ebnf":
         return <EBNFOverviewScene />;
+      case "datasets":
+        return <ListDatasetsScene />;
       case "custom":
       default:
         return <CustomQueryScene />;

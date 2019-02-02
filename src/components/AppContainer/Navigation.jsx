@@ -36,6 +36,7 @@ export default class Navigation extends React.Component {
           style={{ lineHeight: "64px" }}>
           {this.getNavAnchor("custom", "Custom query")}
           {this.getNavAnchor("ebnf", "Review the EBNF")}
+          {this.getNavAnchor("datasets", "Summary of datasets")}
         </Menu>
       </Header>
     );
