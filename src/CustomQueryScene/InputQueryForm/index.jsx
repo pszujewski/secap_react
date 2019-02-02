@@ -27,6 +27,7 @@ export class InputQueryForm extends React.Component {
     return (
       <Form style={{ display: "flex" }} onSubmit={this.handleSubmit}>
         <Input
+          id="query-input"
           value={this.state.inputValue}
           onChange={this.updateInput}
           prefix={<Icon type="edit" style={{ color: "rgba(0,0,0,.25)" }} />}
