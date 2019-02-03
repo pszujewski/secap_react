@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+import DatasetsTable from "./DatasetsTable";
+import LoadingSpinner from "../components/LoadingSpinner";
 import { listDatasetsRequest } from "./data/actions";
 import { getListDatasetsState } from "./data/mapStateToProps";
 
@@ -16,8 +19,16 @@ export class ListDatasetsScene extends React.Component {
     }
   }
 
+  getDatasetsTable() {
+    const { hasDatasetsList } = this.props;
+    if (hasDatasetsList) {
+      return <DatasetsTable />;
+    }
+    return <LoadingSpinner />;
+  }
+
   render() {
-    return <div data-testid="datasets-scene">DATASETS SCENE LIST</div>;
+    return <div data-testid="datasets-scene">{this.getDatasetsTable()}</div>;
   }
 }
 

@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import InputQueryForm from "./InputQueryForm";
 import ResultsTableWrapper from "./QueryResultsTable/ResultsTableWrapped";
 import QueryErrorPrompt from "./QueryErrorPrompt";
+
+import LoadingSpinner from "../components/LoadingSpinner";
 import Prompt from "../components/Prompt";
 import { getQueryState } from "./data/mapStateToProps";
 
@@ -32,10 +34,11 @@ export class CustomQueryScene extends React.Component {
   }
 
   render() {
+    const { isLoadingQuery: isLoading } = this.props;
     return (
       <div data-testid="custom-query-scene">
         <InputQueryForm />
-        {this.getQueryFeedback()}
+        {isLoading ? <LoadingSpinner /> : this.getQueryFeedback()}
       </div>
     );
   }
