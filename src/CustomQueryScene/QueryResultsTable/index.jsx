@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ColumnTitle from "./ColumnTitle";
 import NoQueryResultsPrompt from "./NoQueryResultsPrompt";
 import { Table } from "antd";
 
@@ -16,14 +15,8 @@ export default class QueryResultsTable extends React.Component {
     return Object.keys(firstRecord).map(this.getOneColumnConfig);
   }
 
-  getColumnTitle = colKey => {
-    const columnTitle = new ColumnTitle(colKey);
-    return columnTitle.getTitle();
-  };
-
   getOneColumnConfig = colKey => {
-    const title = this.getColumnTitle(colKey);
-    return { title, dataIndex: colKey, key: colKey };
+    return { title: colKey, dataIndex: colKey, key: colKey };
   };
 
   getRecordsWithUniqueKeys() {

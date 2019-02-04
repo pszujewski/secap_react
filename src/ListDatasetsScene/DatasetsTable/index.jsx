@@ -24,7 +24,15 @@ export class DatasetsTable extends React.Component {
 
   render() {
     return (
-      <Table columns={this.getColumnsConfig()} dataSource={this.getRecords()} />
+      <div className="datasets-table">
+        <p className="bold">
+          The following is a snapshot of the datasets that can be queried
+        </p>
+        <Table
+          columns={this.getColumnsConfig()}
+          dataSource={this.getRecords()}
+        />
+      </div>
     );
   }
 }

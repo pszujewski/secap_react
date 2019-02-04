@@ -4,8 +4,8 @@ import RuleDivider from "./RuleDivider";
 export default class EBNF extends React.Component {
   render() {
     return ( 
-      <div>
-        <p style={{ fontWeight: "bold" }}>The following EBNF defines the structure of the queries that can be input under "Custom query"</p>
+      <div id="EBNF">
+        <p className="bold">The following EBNF defines the structure of the queries that can be input under "Custom query"</p>
         <pre className="ebnf-wrapper">
           <code className="ebnf">
             <RuleDivider>

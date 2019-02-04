@@ -6,7 +6,7 @@ const { Header } = Layout;
 
 export default class Navigation extends React.Component {
   static propTypes = {
-    activeNavKey: PropTypes.string, // "custom," "build" or "ebnf"
+    activeNavKey: PropTypes.string, // "custom," "datasets" or "ebnf"
     updateNavKey: PropTypes.func,
     children: PropTypes.element,
   };
