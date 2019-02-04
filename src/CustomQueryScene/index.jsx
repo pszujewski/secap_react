@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import InputQueryForm from "./InputQueryForm";
+import InputQueryForm from "./InputQueryForm/InputQueryConnected";
 import ResultsTableWrapper from "./QueryResultsTable/ResultsTableWrapped";
 import QueryErrorPrompt from "./QueryErrorPrompt";
 

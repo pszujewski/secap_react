@@ -1,12 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Form, Icon, Input, Button } from "antd";
-import { queryRequest } from "../data/actions";
 
-export class InputQueryForm extends React.Component {
+export default class InputQueryForm extends React.Component {
   static propTypes = {
     sendQuery: PropTypes.func,
+    isLoadingQuery: PropTypes.bool,
   };
 
   state = {
@@ -23,6 +22,16 @@ export class InputQueryForm extends React.Component {
     this.props.sendQuery(this.state.inputValue.trim());
   };
 
+  getSubmitButton() {
+    const { isLoadingQuery: loading } = this.props;
+    const s = { marginLeft: "2rem" };
+    return (
+      <Button disabled={loading} type="primary" htmlType="submit" style={s}>
+        {loading ? "...Loading" : "Submit query"}
+      </Button>
+    );
+  }
+
   render() {
     return (
       <Form style={{ display: "flex" }} onSubmit={this.handleSubmit}>
@@ -33,19 +42,8 @@ export class InputQueryForm extends React.Component {
           prefix={<Icon type="edit" style={{ color: "rgba(0,0,0,.25)" }} />}
           placeholder="UBC query goes here"
         />
-        <Button type="primary" htmlType="submit" style={{ marginLeft: "2rem" }}>
-          Submit query
-        </Button>
+        {this.getSubmitButton()}
       </Form>
     );
   }
 }
-
-const mapDispatchToProps = dispatch => ({
-  sendQuery: query => dispatch(queryRequest(query)),
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(InputQueryForm);
