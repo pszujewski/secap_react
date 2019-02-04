@@ -33,12 +33,14 @@ export default class InputQueryForm extends React.Component {
   }
 
   render() {
+    const flex = { display: "flex" };
     return (
-      <Form style={{ display: "flex" }} onSubmit={this.handleSubmit}>
+      <Form style={flex} onSubmit={this.handleSubmit} autoComplete="off">
         <Input
           id="query-input"
           value={this.state.inputValue}
           onChange={this.updateInput}
+          autoComplete="off"
           prefix={<Icon type="edit" style={{ color: "rgba(0,0,0,.25)" }} />}
           placeholder="UBC query goes here"
         />
