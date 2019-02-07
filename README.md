@@ -14,8 +14,12 @@ This repo contains the code for a React-based frontend that interacts with the T
 
 #### Snapshot
 
-![secap_react](https://github.com/pszujewski/secap_react/tree/master/assets/secap-client.png)
+![secap_react](https://github.com/pszujewski/secap_react/blob/master/assets/secap-client.png)
 
 #### Built with
 
 React, redux, redux-saga, react-testing-library, create-react-app
+
+#### Deployed with
+
+Heroku & surge
