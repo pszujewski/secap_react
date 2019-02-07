@@ -29,8 +29,19 @@ export class CustomQueryScene extends React.Component {
   }
 
   getDefaultPrompt() {
-    const b = "Input your query above. Review the EBNF for query construction.";
-    return <Prompt header="Query UBC datasets" body={b} />;
+    const b = "Input your query above. Review the EBNF for query construction";
+    return (
+      <Prompt header="Query UBC datasets" body={b}>
+        <p>
+          Or paste this example query into the field above:{" "}
+          <span style={{ fontStyle: "italic" }}>
+            In courses dataset courses, find entries whose Average is greater
+            than 97; show Department and Average; sort in ascending order by
+            Average.
+          </span>
+        </p>
+      </Prompt>
+    );
   }
 
   render() {

@@ -32,7 +32,9 @@ export default class ApiFetcher {
   }
 
   _getServerDomain() {
-    return "http://localhost:4321";
+    // API released on heroku
+    return "https://boiling-meadow-87470.herokuapp.com";
+    // return "http://localhost:4321";
   }
 
   _getRequestUrl(endpoint) {
